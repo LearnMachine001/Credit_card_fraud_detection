@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection System</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='demo.css') }}"> -->
+     <link rel="stylesheet" href="/static/demo.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>💳 Fraud Detection System</h2>
+</div>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">📊 Analytics</a>
+        <a href="#">📁 History</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <h2>Transaction Analysis</h2>
+
+        <form action="/predict" method="POST">
+
+            <label>Amount</label>
+            <input type="number" name="amount" placeholder="Enter amount">
+
+            <label>Time</label>
+            <input type="number" name="time" placeholder="Enter time">
+
+            <button type="submit">Analyze Transaction</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result {{ 'fraud' if prediction == 1 else 'safe' }}">
+            <h3>
+                {{ "⚠ Fraud Detected" if prediction == 1 else "✅ Safe Transaction" }}
+            </h3>
+            <p>Confidence: {{ confidence }}%</p>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>

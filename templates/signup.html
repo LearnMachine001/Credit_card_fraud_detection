@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+</head>
+<body>
+
+<div class="signup-box">
+    <h2>Create Account</h2>
+
+    <div>
+        <form action="/signup" method="POST">
+            <b>
+            <!-- <input type="text" name="name" placeholder="Enter Name" required> -->
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <label> Mobile No.</label>
+            <input type="text" name="mobile" placeholder="Enter Mobile" required>
+            <label > Password</label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            </b>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <p>Already have account? <a href="/login">Login</a></p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</div>
+
+</body>
+</html>

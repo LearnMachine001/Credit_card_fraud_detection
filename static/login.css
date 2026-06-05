@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Box */
+.login-box {
+    background: white;
+    padding: 30px;
+    width: 900px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background: #00bcd4;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #0097a7;
+}
+
+/* Register text */
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+.input-night{
+    width: 50px;
+    height:30px;
+}

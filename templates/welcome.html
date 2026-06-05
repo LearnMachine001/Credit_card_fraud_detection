@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome - Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='welcome.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ✅ NAVBAR -->
+<div class="navbar">
+    <h2>💳 CreditCard Fraud Detection</h2>
+
+    <div class="nav-links">
+        <a href="{{ url_for('about') }}"></a>
+        <a href="{{ url_for('contact') }}"></a>
+
+        {% if session.get('user') %}
+            <a href="{{ url_for('dashboard') }}"></a>
+            <!-- <a class ="logout-button" href="/logout" class="logout">Logout</a> -->
+        {% else %}
+            <!-- <a href="/login">Login</a> -->
+            <!-- <a href="/signup">Register</a> -->
+        {% endif %}
+    </div>
+</div>
+
+<!-- ✅ HERO SECTION -->
+<div class="hero">
+    <h1>🚀 Welcome to Credit Card Fraud Detection System</h1>
+    <p>Secure your transactions using AI & Machine Learning</p>
+
+    <div class="buttons">
+        <a href="/login" class="btn login-btn">Login</a>
+        <a href="/signup" class="btn register-btn">Register</a>
+        <a href="{{ url_for('guest_mode') }}" class="btn guest-btn">Continue as Guest Mode</a>
+    </div>
+</div>
+
+<!-- ✅ FEATURES SECTION -->
+<div class="features">
+
+    <div class="card">
+        <h3> Dashboard </h3>
+        <p>View your prediction history and transaction insights.</p>
+        <a href="{{ url_for('dashboard') }}" class="card-btn">Go</a>
+    </div>
+
+    <div class="card">
+        <h3> About</h3>
+        <p>Learn how our AI model detects fraud transactions.</p>
+        <a href="{{ url_for('about') }}" class="card-btn">Explore</a>
+    </div>
+
+    <div class="card">
+        <h3> Contact</h3>
+        <p>Reach out for support or collaboration.</p>
+        <a href="{{ url_for('contact') }}" class="card-btn">Contact</a>
+    </div>
+
+</div>
+
+<!-- ✅ FOOTER -->
+<footer>
+    <p>🔐 Fraud Detection System | AI Powered</p>
+    <p>© 2026 | Developed by Vikas Kumar</p>
+</footer>
+
+</body>
+</html>

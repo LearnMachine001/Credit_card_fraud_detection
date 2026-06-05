@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login - Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+        <h2>🔐 Login</h2>
+
+        <form action="/login" method="POST">
+            
+            <!-- Email -->
+            <div class="input-group">
+                <b>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div> </b>
+
+            <!-- Mobile -->
+            <!-- <div class="input-group">
+                <label>Mobile Number</label>
+                <input type="text" name="mobile" placeholder="Enter mobile number">
+            </div> -->
+
+            <!-- Password -->
+            <b>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter password" required>
+            </div></b>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">Login</button>
+
+            <!-- Register Link -->
+            <p class="register-text">
+                Don't have an account?
+                <a href="/signup">Register</a>
+            </p>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <p class="flash-msg {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endwith %}
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e1e2f;
+    color: white;
+    padding: 15px 30px;
+}
+.navbar a{
+    display: flex;
+    justify-self: right;
+    color: white;
+    margin-left: 50%;
+    text-decoration: none;
+
+}
+
+.nav-right {
+    /* align-items: center; */
+    gap: 15px;
+    margin-right: 50px;
+}
+.nav-right h5{
+    margin-right: auto;
+}
+
+.logout-btn {
+    text-decoration: none;
+    background: #ff4d4d;
+    padding: 6px 12px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Container */
+.dashboard-container {
+    padding: 30px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #00bcd4;
+    color: white;
+}
+
+/* Status Colors */
+.fraud {
+    color: red;
+    font-weight: bold;
+}
+
+.normal {
+    color: green;
+    font-weight: bold;
+}
+
+/* Button */
+.predict-btn {
+    text-decoration: none;
+    background: #00bcd4;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+h2{
+    color: white;
+}

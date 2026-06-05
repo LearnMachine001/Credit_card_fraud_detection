@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Credit Card Fraud Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='predict.css') }}"
+    />
+    <!-- <link rel="stylesheet" href="/static/styleapp.css"> -->
+  </head>
+
+  <body>
+    <!-- ✅ NAVBAR -->
+    <div class="navbar">
+      <div class="logo-cont">
+        <a class="logo" href="#">💳 CreditCardFraud</a>
+      </div>
+
+      <div>
+        <input type="text" class="input-box" placeholder="Search" />
+        <button>🔍</button>
+      </div>
+
+      <div class="nav-link">
+        <a
+          href="{{url_for('welcome')}}"
+          class="{% if request.path == '/' %}active{% endif %}"
+          >Home</a
+        >
+        <a
+          href="{{url_for('about')}}"
+          class="{% if request.path == '/about' %}active{% endif %}"
+          >About</a
+        >
+        <a
+          href="{{url_for('dashboard')}}"
+          class="{% if request.path == '/dashboard' %}active{% endif %}"
+          >Dashboard</a
+        >
+        <a
+          href="{{url_for('contact')}}"
+          class="{% if request.path == '/contact'%}active{% endif %}">Contact</a>
+      </div>
+    </div>
+
+    <!-- ✅ HERO -->
+    <div class="hero">
+      <h1>💳 Credit Card <span>Fraud Detection</span></h1>
+      <!-- <p> -->
+        <!-- Secure your transactions using Machine Learning and AI.The objective of
+        this project is to build a robust and scalable fraud detection system
+        that utilizes machine learning models to accurately predict fraudulent
+        transactions, thereby improving trust, security, and efficiency in
+        digital payment systems. -->
+      <!-- </p> -->
+    </div>
+    <div class="guest-warning">
+      {% if session.get('guest') %}
+      <p style="color:orange;">⚠ Guest Mode: Data will not be saved</p>
+      {% endif %}
+      </div>
+    
+
+    <!-- ✅ FORM -->
+    <form class="form-container" action="/predict" method="post">
+      <h2 class="form-title">Enter Transaction Details</h2>
+      <!-- <p class="form-note">0 = Normal, 1 = Fraud</p> -->
+      <!-- <label> Amount  </label> -->
+      <input type="number" step="any" name="amount" placeholder="Enter Amount"> <br>
+      <!-- <small>Tip: High amounts (>2000) are more likely flagged</small> -->
+      <!-- <br/> -->
+
+      <!-- Dropdown -->
+       <!-- <label> Time </label> -->
+      <select name="hour" class="input-hour" required>
+        <option value="">Select Hour</option>
+          {% for i in range(0,24) %}
+        <option value="{{i}}">{{i}}:00</option>
+          {% endfor %}
+        </select>
+      <br />
+        <!-- <label>   </label> -->
+        <select name="is_night" class="input-night" id="input-bar" placeholder="Night/Day">
+        <option value="0">No (Day)</option>
+        <option value="1">Yes (Night)</option>
+        </select>
+        <br>
+        <!-- <label>High amount  </label> -->
+        <select name="is_high_amount" class="input-night" id="input-bar" placeholder="High Amount">
+        <option value="0">No (Small amount)</option>
+        <option value="1">Yes (Big amount)</option>
+        </select>
+        <br>
+          <!-- <div class="grid">
+            <span><button type="button" class="accordion-btn" onclick="toggleAccordion()">
+              Advanced Features (V1–V25)
+              </button></span></div> -->
+
+<!-- <div id="advancedSection" class="accordion-content">
+    <div class="grid">
+        {% for i in range(1,26) %}
+        <div class="tooltip-box">
+            <input type="number" step="any" name="V{{i}}" placeholder="V{{i}}" value="0">
+            <span class="tooltip-text">PCA Feature {{i}} (used by model)</span>
+        </div>
+        {% endfor %}
+    </div>
+</div> -->
+  
+        <script>
+function toggleAccordion() {
+    let section = document.getElementById("advancedSection");
+    let btn = document.querySelector(".accordion-btn");
+
+    if (section.style.maxHeight) {
+        section.style.maxHeight = null;
+        btn.innerText = "⚙ Advanced Features (V1–V25)";
+        localStorage.setItem("advancedOpen", "false");
+    } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+        btn.innerText = " Hide Advanced Features";
+        localStorage.setItem("advancedOpen", "true");
+    }
+}
+</script>
+
+
+      <button type="submit" class="btn-predict">Predict</button>
+
+      {% if prediction_text is defined%}
+      <h3>Model Prediction: {{ prediction_text }}</h3>
+      {% endif %}
+      <!-- <div class="result-box">
+        <p><b> Reason :</b> {{ reason if reason is defined else "No specific reason " }}</p>
+      </div> -->
+      {% if score is defined and score is not none %}
+<div class="score-box">
+  <!-- <h3><b>Fraud score :</b>{{ score  }}%</h3> -->
+   <h3><b>Fraud Probability:</b> {{ score }}%</h3>
+
+{% if score > 70 %}
+<p style="color:red;"><b>High Fraud Risk</b></p>
+{% elif score > 40 %}
+<p style="color:orange;"><b> Medium Risk</b></p>
+{% else %}
+<p style="color:green;"><b>Safe Transaction</b></p>
+{% endif %}
+
+  <div class="progress">
+    <div class="progress-bar
+      {% if  score > 70 %}high
+      {% elif score > 40 %}medium
+      {% else %}low
+      {% endif %}"
+      Data-score="{{ score }}">
+    </div>
+  </div>
+</div>
+{% endif %}
+    </form>
+
+    <!-- ✅ INFO SECTION -->
+    <div class="info-box">
+    <div class="about-section">
+      <h2>About This System</h2>
+      <p>
+        <b>
+            This Credit Card Fraud Detection System uses machine learning to
+            identify fraudulent transactions. It analyzes transaction patterns
+            like amount, time, and behavior to detect suspicious activity.
+          </b>
+        </p>
+    </div>
+    </div>
+
+    <!-- ✅ FOOTER -->
+    <footer class="footer">
+      <p>🔐 Credit Card Fraud Detection System</p>
+      <p>Using AI & Machine Learning to secure digital payments</p>
+      <p>© 2026 | All Rights Reserved</p>
+      <p>Developed by Vikas Kumar</p>
+    </footer>
+  </body>
+</html>

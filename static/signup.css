@@ -1,0 +1,52 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.signup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 900px;
+    height: 400px;
+    text-align: center;
+}
+
+.signup-box input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.signup-box button {
+    width: 100%;
+    padding: 10px;
+    background: #00bcd4;
+    border: none;
+    color: white;
+}
+.signup-box label {
+    display: flex;
+    text-align: left;
+
+}
+.flash {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}

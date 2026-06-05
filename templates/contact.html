@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact - Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+<body>
+
+<!-- Navbar (optional reuse) -->
+<div class="navbar">
+    <h2>💳 FraudDetectSystem</h2>
+    <div class="navbar-link">
+        <a href="{{url_for('welcome')}}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{{url_for('about')}}" class="{% if request.path == '/about' %}active{% endif %}">About</a>
+        <a href="{{url_for('dashboard')}}" class="{% if request.path == '/dashboard '%}active{% endif %}">Dashboard</a>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="contact-container">
+
+    <h1>Contact Me</h1>
+    <p>Feel free to reach out for any queries 🚀</p>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+            <h3>📧 Email</h3>
+            <p>25550CN186@glbctm.ac.in</p>
+        </div>
+
+        <div class="contact-item">
+            <h3>📱 Mobile</h3>
+            <p>+91 9528643300</p>
+        </div>
+
+        <div class="contact-item">
+            <h3>💻 GitHub</h3>
+            <a href="https://github.com/Vikasthakur003?tab=repositories" target="_blank">
+                github.com/vikasthakur003
+            </a>
+        </div>
+
+        <div class="contact-item">
+            <h3>🔗 LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/vikas-kumar-4ab170292/" target="_blank">
+                linkedin.com/in/Vikas kumar
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

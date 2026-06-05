@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2>💳 FraudDetect Dashboard</h2>
+    <a href="{{url_for('welcome')}}" class="{% if request.path == '/' %}active{% endif %}">Home</a> <br>
+    <!-- <a href="{{url_for('homepage')}} class={%if request.path == '/' %}active{% endif %}"></a> -->
+
+    <div class="nav-right">
+        <h5>Welcome,{{ user.split('@')[0].rstrip('0123456789').capitalize() }}</h5>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="dashboard-container">
+
+    <h2>Your Prediction History</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Result</th>
+        </tr>
+        {% if data %}
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td> <!--#show id-->
+                <td>{{ row[2] }}</td><!--show amount-->
+                <td class="{{ 'fraud' if row[3]=='Fraud' else 'Normal' }}">
+                    {{ row[3] }}<!--show result-->
+                </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">No data availble</td>
+        </tr>
+        {% endif %}
+
+    </table>
+
+    <br>
+    <a href="/predict-page" class="predict-btn">Make New Prediction</a>
+
+</div>
+
+</body>
+</html>

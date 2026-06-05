@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family:'Segoe UI', sans-serif;
+    font-size: 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #1e1e2f;
+    color: white;
+}
+.navbar-link{
+    display: flex;
+    justify-content: right;
+    align-items:center;
+    margin: 10px;
+    padding: 8px 20px;
+    gap: 35px;
+    color: white;
+}
+.navbar-link a{
+    color: white;
+    text-decoration: none;
+}
+
+/* Container */
+.contact-container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Box */
+.contact-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Card */
+.contact-item {
+    background: white;
+    color: black;
+    padding: 20px;
+    width: 270px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    background-color: orange;
+}
+
+/* Links */
+.contact-item a {
+    text-decoration: none;
+    color: #00bcd4;
+    font-weight: bold;
+}
+a {
+    color: white;
+}

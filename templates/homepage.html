@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Credit Card Fraud Detection</title>
+    <link rel="stylesheet" href="{{url_for('static',filename ='homepage.css')}}">
+     <!-- <link rel="stylesheet" href="/static/homepage.css"> -->
+</head>
+<body>
+
+<div class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        💳 FraudDetect
+    </div>
+
+    <!-- Menu Links -->
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+    </ul>
+    <button class="logout-button" onclick = "window.location.href = '/logout'"">Logout</button>
+
+    <!-- Auth Buttons -->
+    <!-- <div class="auth-buttons">
+        <a href="/login" class="login-btn">Login</a>
+        <a href="/signup" class="signup-btn">Register</a>
+        <a href=""></a>
+    </div> -->
+
+</div>
+<h2>Welcome,{{ user.split('@')[0].rstrip('0123456789').capitalize() }}</h2>
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-text">
+        <h1>Credit Card <span>Fraud Detection</span></h1>
+        <p>Secure your transactions, prevent fraud in real-time.</p>
+        <button onclick ="window.location.href='/predict-page'">
+            Start Predict
+        </button> <br>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://plus.unsplash.com/premium_photo-1682310138171-14794943c4c5?q=80&w=912&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt ="fraud image">
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="features">
+    <div class="card">
+        <h3>📊 Real-Time Analysis</h3>
+        <p>Detect fraud instantly using ML models.</p>
+    </div>
+
+    <div class="card">
+        <h3>⚙️ Advanced Algorithms</h3>
+        <p>Powered by machine learning & AI.</p>
+    </div>
+
+    <div class="card">
+        <h3>🛡️ Stay Protected</h3>
+        <p>Safe and secure transactions.</p>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+        
+        <!-- About Section -->
+        <div class="footer-section">
+            <h2>💳 CreditCardFraud</h2>
+            <p>Secure and intelligent fraud detection system to protect your transactions using Machine Learning.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{{url_for('predict_page')}}" class="{% if request.path == '/predict-page' %}active{% endif %}">predict</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: 25550CN186@glbctm.ac.in</p>
+            <p>Phone: +91 9528643300</p>
+            <p>Department : MCA </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#">🌐</a>
+                <a href="#">📘</a>
+                <a href="#">🐦</a>
+                <a href="#">📸</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 CreditCardFraud Detection System | All Rights Reserved</p>
+    </div>
+</footer>
+
+</body>
+</html>
